@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container"
 import Nav from "react-bootstrap/Nav"
 import Navbar from "react-bootstrap/Navbar"
 import NavDropdown from "react-bootstrap/NavDropdown"
+import Widget from '../Widget/Widget';
 
 const NavBar = () => {
     return (
@@ -23,7 +24,7 @@ const NavBar = () => {
                         </Nav>
                         <Nav>
                             <Nav.Link eventKey={2} href="#carrito">
-                                Mi Carrito
+                                <Widget />
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
