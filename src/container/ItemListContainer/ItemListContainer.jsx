@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getFetch } from '../../helpers/gFetch';
 import ItemList from '../../components/ItemList/ItemList';
-
+import styles from '../ItemListContainer/ItemListContainer.css'
 
 const ItemListContainer = ({ saludo }) => {
 
@@ -28,7 +28,7 @@ const ItemListContainer = ({ saludo }) => {
         <>
             <div className="saludo">{saludo}</div>
             {
-                loading ? <h2> Cargando...</h2> : <ItemList prods={prods} />
+                loading ? <h2 className="cargando"> Cargando...</h2> : <ItemList prods={prods} />
             }
         </>
     )
