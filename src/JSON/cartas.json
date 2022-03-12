@@ -1,0 +1,102 @@
+[
+    {
+        "id": 1,
+        "type": "Animal",
+        "name": "Lobo Gris",
+        "price": 3,
+        "damage": 3,
+        "img": "",
+        "alt": "imagen de un lobo gris",
+        "effect": "Gana +1 de daño por cada Lobo Gris además de este en tu tablero."
+    },
+    {
+        "id": 2,
+        "type": "Animal",
+        "name": "Camaleón",
+        "price": 3,
+        "damage": 2,
+        "img": "camaleon.jpg",
+        "alt": "imagen de un camaleón",
+        "effect": "Puede tomar el ataque de un enemigo en reposo y sumarlo al suyo hasta el final del turno."
+    },
+    {
+        "id": 3,
+        "type": "Animal",
+        "name": "Tortuga Marina",
+        "price": 3,
+        "damage": 2,
+        "img": "tortugaMarina.jpg",
+        "alt": "imagen de una tortuga marina",
+        "effect": "Puede sacrificarse para evitar que el enemigo siga atacando este turno."
+    },
+    {
+        "id": 4,
+        "type": "Animal",
+        "name": "Pez Payaso",
+        "price": 1,
+        "damage": 1,
+        "img": "pezPayaso.jpg",
+        "alt": "imagen de un pez payaso",
+        "effect": ""
+    },
+    {
+        "id": 5,
+        "type": "Habilidad",
+        "name": "Coraza",
+        "price": 2,
+        "damage": 0,
+        "img": "coraza.png",
+        "alt": "imagen de una coraza que se equipa a un animal",
+        "effect": "Un animal pasa a ser indestructible por este turno."
+    },
+    {
+        "id": 6,
+        "type": "Habilidad",
+        "name": "Captura",
+        "price": 3,
+        "damage": 0,
+        "img": "captura.jpg",
+        "alt": "imagen de redes capturando a un animal",
+        "effect": "Evita que un enemigo pueda pasar a la línea de batalla por 2 turnos."
+    },
+    {
+        "id": 7,
+        "type": "Habilidad",
+        "name": "Aullido",
+        "price": 2,
+        "damage": 0,
+        "img": "aullido.jpg",
+        "alt": "imagen de un lobo gris aullando",
+        "effect": "Si tienes un Lobo Gris en juego, puedes jugar a otro desde tu mazo o tu cementerio sin pagar su coste."
+    },
+    {
+        "id": 8,
+        "type": "Habitat",
+        "name": "Alcantarilla",
+        "price": 3,
+        "damage": 0,
+        "img": "alcantarilla.jpg",
+        "alt": "imagen de una alcantarilla",
+        "effect": "Puedes revivir una rata por turno pagando su coste y ponerla en tu línea de reposo.."
+    },
+    {
+        "id": 9,
+        "type": "Habitat",
+        "name": "Costa",
+        "price": 6,
+        "damage": 0,
+        "img": "costa.jpg",
+        "alt": "imagen de una costa",
+        "effect": "Si tienes un Tiburón Blanco en juego, puedes consumir 5 alimentos para activar su efecto una segunda vez este turno."
+    },
+    {
+        "id": 10,
+        "type": "Alimento",
+        "name": "Alimento",
+        "price": 0,
+        "damage": 0,
+        "img": "alimento.jpg",
+        "alt": "imagen de latas de alimento",
+        "effect": ""
+    }
+]
