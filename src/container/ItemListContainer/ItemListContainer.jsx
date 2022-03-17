@@ -13,7 +13,7 @@ const ItemListContainer = ({ saludo }) => {
     useEffect(() => {
         if (id) {
             getFetch
-                .then(resp => setProds(resp.filter(prod => prod.categoria === id)))
+                .then(resp => setProds(resp.filter(prod => prod.type === id)))
                 .catch(err => console.log(err))
                 .finally(() => setLoading(false));
         } else {

@@ -5,7 +5,7 @@
         "name": "Lobo Gris",
         "price": 3,
         "damage": 3,
-        "img": "",
+        "img": "../public/img/loboGris.jpg",
         "alt": "imagen de un lobo gris",
         "effect": "Gana +1 de daño por cada Lobo Gris además de este en tu tablero."
     },
