@@ -9,10 +9,13 @@ body {
   font-weight: 700;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
+
 .titulo__subtitulo {
   padding: 1rem;
   font-size: 1rem;
   color: white;
   font-weight: 600;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-}/*# sourceMappingURL=Titulo.css.map */
+}
+
+/*# sourceMappingURL=Titulo.css.map */

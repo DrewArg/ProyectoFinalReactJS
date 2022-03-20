@@ -1,7 +1,6 @@
-
 const cartas = [
     {
-        "id": 1,
+        "id": '1',
         "type": "Animal",
         "name": "Lobo Gris",
         "price": 3,
@@ -11,7 +10,7 @@ const cartas = [
         "description": "Gana +1 de daño por cada Lobo Gris además de este en tu tablero."
     },
     {
-        "id": 2,
+        "id": '2',
         "type": "Animal",
         "name": "Camaleón",
         "price": 3,
@@ -21,7 +20,7 @@ const cartas = [
         "description": "Puede tomar el ataque de un enemigo en reposo y sumarlo al suyo hasta el final del turno."
     },
     {
-        "id": 3,
+        "id": '3',
         "type": "Animal",
         "name": "Tortuga Marina",
         "price": 3,
@@ -31,7 +30,7 @@ const cartas = [
         "description": "Puede sacrificarse para evitar que el enemigo siga atacando este turno."
     },
     {
-        "id": 4,
+        "id": '4',
         "type": "Animal",
         "name": "Pez Payaso",
         "price": 1,
@@ -41,7 +40,7 @@ const cartas = [
         "description": ""
     },
     {
-        "id": 5,
+        "id": '5',
         "type": "Habilidad",
         "name": "Coraza",
         "price": 2,
@@ -51,7 +50,7 @@ const cartas = [
         "description": "Un animal pasa a ser indestructible por este turno."
     },
     {
-        "id": 6,
+        "id": '6',
         "type": "Habilidad",
         "name": "Captura",
         "price": 3,
@@ -61,7 +60,7 @@ const cartas = [
         "description": "Evita que un enemigo pueda pasar a la línea de batalla por 2 turnos."
     },
     {
-        "id": 7,
+        "id": '7',
         "type": "Habilidad",
         "name": "Aullido",
         "price": 2,
@@ -71,7 +70,7 @@ const cartas = [
         "description": "Si tienes un Lobo Gris en juego, puedes jugar a otro desde tu mazo o tu cementerio sin pagar su coste."
     },
     {
-        "id": 8,
+        "id": '8',
         "type": "Habitat",
         "name": "Alcantarilla",
         "price": 3,
@@ -81,7 +80,7 @@ const cartas = [
         "description": "Puedes revivir una rata por turno pagando su coste y ponerla en tu línea de reposo.."
     },
     {
-        "id": 9,
+        "id": '9',
         "type": "Habitat",
         "name": "Costa",
         "price": 6,
@@ -91,7 +90,7 @@ const cartas = [
         "description": "Si tienes un Tiburón Blanco en juego, puedes consumir 5 alimentos para activar su efecto una segunda vez este turno."
     },
     {
-        "id": 10,
+        "id": '10',
         "type": "Alimento",
         "name": "Alimento",
         "price": 0,
@@ -115,3 +114,28 @@ export const getFetch = new Promise((resolve, reject) => {
     }
 })
 
+// MOCKK
+
+// const producto = {
+//     "id": '1',
+//     "type": "Animal",
+//     "name": "Lobo Gris",
+//     "price": 3,
+//     "damage": 3,
+//     "img": '../../public/img/loboGris.jpg',
+//     "alt": "imagen de un lobo gris",
+//     "description": "Gana +1 de daño por cada Lobo Gris además de este en tu tablero."
+// }
+
+// export const getFetchOne = new Promise((resolve, reject) => {
+//     let condition = true;
+
+//     if (condition) {
+//         setTimeout(() => {
+//             resolve(producto);
+//         }, 3000);
+//     } else {
+//         reject('400 - not found');
+//     }
+
+// })
