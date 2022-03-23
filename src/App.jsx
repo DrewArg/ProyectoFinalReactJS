@@ -21,11 +21,18 @@ function App() {
               saludo='Hola soy ItemListContainer'
             />}
           />
+          <Route
+            path="/type/:typeId"
+            element=
+            {<ItemListContainer
+              saludo='Hola soy ItemListContainer'
+            />}
+          />
           <Route path="/detail/:detailId" element={<ItemDetailContainer />} />
-          {/* <Route path="/cart" element={<Cart />} /> */}
+          <Route path="/cart" element={<Cart />} />
           {/* crear un componente para el error 404 */}
           {/* <Route path=/notFound element={Componente404 />}/>} */}
-          {/* <Route path='/*' element={<Navigate to='/' />} /> */}
+          <Route path='/*' element={<Navigate to='/' />} />
         </Routes>
 
       </div>

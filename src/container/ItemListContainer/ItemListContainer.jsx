@@ -9,12 +9,12 @@ const ItemListContainer = ({ saludo }) => {
 
     const [loading, setLoading] = useState(true);
     const [prods, setProds] = useState([]);
-    const { id } = useParams();
+    const { typeId } = useParams();
 
     useEffect(() => {
-        if (id) {
+        if (typeId) {
             getFetch
-                .then(resp => setProds(resp.filter(prod => prod.type === id)))
+                .then(resp => setProds(resp.filter(prod => prod.type === typeId)))
                 .catch(err => console.log(err))
                 .finally(() => setLoading(false));
         } else {
@@ -23,7 +23,7 @@ const ItemListContainer = ({ saludo }) => {
                 .catch(err => console.log(err))
                 .finally(() => setLoading(false))
         }
-    }, [id])
+    }, [typeId])
 
     return (
         <>

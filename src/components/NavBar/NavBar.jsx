@@ -4,28 +4,29 @@ import Nav from "react-bootstrap/Nav"
 import Navbar from "react-bootstrap/Navbar"
 import NavDropdown from "react-bootstrap/NavDropdown"
 import Widget from '../CartWidget/CartWidget';
+import { NavLink } from 'react-router-dom'
+import styles from '../NavBar/NavBar.css'
 
 const NavBar = () => {
     return (
         <>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
-                    <Navbar.Brand href="#home">BPRA</Navbar.Brand>
+                    <NavLink className="brand" to="/">BPRA</NavLink>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="#home">Home</Nav.Link>
-                            <Nav.Link href="#reglamento">Reglamento</Nav.Link>
-                            <NavDropdown title="Productos" id="collasible-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">Mazos</NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.4">Cartas</NavDropdown.Item>
-                            </NavDropdown>
+                            <div className="navLink">
+                                <NavLink className="navLink__child" to="/type/Animal">Animal</NavLink>
+                                <NavLink className="navLink__child" to="/type/Alimento">Alimento</NavLink>
+                                <NavLink className="navLink__child" to="/type/Habilidad">Habilidad</NavLink>
+                                <NavLink className="navLink__child" to="/type/Habitat">Hábitat</NavLink>
+                            </div>
                         </Nav>
                         <Nav>
-                            <Nav.Link eventKey={2} href="#carrito">
+                            <NavLink className="cart" eventKey={2} to="/cart">
                                 <Widget />
-                            </Nav.Link>
+                            </NavLink>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
