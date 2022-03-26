@@ -32,10 +32,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           {/* crear un componente para el error 404 */}
           {/* <Route path=/notFound element={Componente404 />}/>} */}
-          <Route path="/type/Animal/detail/:detailId" element={<ItemDetailContainer />} />
-          <Route path="/type/Habilidad/detail/:detailId" element={<ItemDetailContainer />} />
-          <Route path="/type/Alimento/detail/:detailId" element={<ItemDetailContainer />} />
-          <Route path="/type/Habitat/detail/:detailId" element={<ItemDetailContainer />} />
+          <Route path="/type/typeId/detail/:detailId" element={<ItemDetailContainer />} />
           <Route path='/*' element={<Navigate to='/' />} />
         </Routes>
 
