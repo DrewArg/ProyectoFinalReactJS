@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { getFetch } from '../../helpers/gFetch'
 import ItemDetail from '../../components/ItemDetail/ItemDetail';
 import DetailDescription from '../../components/DetailDescription/DetailDescription'
-import styles from '../ItemDetailContainer/ItemDetailContainer.css'
+import '../ItemDetailContainer/ItemDetailContainer.css'
 
 function ItemDetailContainer() {
     const [loading, setLoading] = useState(true);

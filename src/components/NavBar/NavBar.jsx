@@ -4,8 +4,8 @@ import Nav from "react-bootstrap/Nav"
 import Navbar from "react-bootstrap/Navbar"
 import NavDropdown from "react-bootstrap/NavDropdown"
 import Widget from '../CartWidget/CartWidget';
+import '../NavBar/NavBar.css'
 import { NavLink } from 'react-router-dom'
-import styles from '../NavBar/NavBar.css'
 
 const NavBar = () => {
     return (

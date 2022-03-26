@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../../components/DetailDescription/DetailDescription.css'
+import '../../components/DetailDescription/DetailDescription.css'
 
 function DetailDescription({ carta }) {
     return (

@@ -1,4 +1,4 @@
-import styles from './Item.css';
+import './Item.css';
 import ItemCount from '../ItemCount/ItemCount'
 import { Link } from 'react-router-dom'
 
@@ -36,9 +36,8 @@ function Item({ prod }) {
                                     {prod.description}
                                 </div>
                             </div>
-                            <div className="tarjeta__precio">
-                                <ItemCount initial={1} stock={10} onAdd={onAdd} />
-                            </div>
+                            <ItemCount initial={1} stock={10} onAdd={onAdd} />
+
                         </div>
 
                     </div>
