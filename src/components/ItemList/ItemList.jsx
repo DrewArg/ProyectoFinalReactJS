@@ -1,9 +1,12 @@
 import Item from '../Item/Item'
+import '../Item/Item.css'
 
 function ItemList({ prods }) {
     return (
         <>
-            {prods.map((prod) => <Item prod={prod} />)}
+            <div className="tarjeta" >
+                {prods.map((prod) => <Item prod={prod} />)}
+            </div>
         </>
     )
 }
