@@ -3,7 +3,7 @@ import { useCartContext } from '../../context/cartContext'
 
 function CartItem({ item }) {
 
-    const { cartList, addToCart } = useCartContext();
+    const { addOneItem, removeItem, removeOneItem } = useCartContext();
 
     return (
         <>
@@ -18,11 +18,11 @@ function CartItem({ item }) {
                     Cantidad: {item.quantity}
                 </div>
                 <div>
-                    Precio: {item.price}
+                    Precio por unidad: {item.price}
                 </div>
-                <button>+ 1</button>
-                <button>- 1 </button>
-                <button>Remover Item</button>
+                <button onClick={() => { addOneItem(item) }}>+ 1</button>
+                <button onClick={() => { removeOneItem(item) }}>- 1 </button>
+                <button onClick={() => { removeItem(item.id) }}>Remover Item</button>
 
             </li>
 

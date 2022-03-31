@@ -1,4 +1,30 @@
 .cart {
   color: white;
   font-weight: 700;
+}
+
+.cartBackground {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10%;
+  width: 80%;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 15px;
+}
+
+/*# sourceMappingURL=ItemDetailContainer.css.map */
+.cartButtons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 1rem;
+}
+
+.cartPrice {
+  color: white;
+  font-weight: 800;
+  text-align: center;
+  justify-content: space-between;
 }/*# sourceMappingURL=Cart.css.map */
