@@ -1,4 +1,3 @@
-import React from 'react'
 import '../Titulo/Titulo.css'
 
 const Titulo = () => {

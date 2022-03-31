@@ -1,4 +1,3 @@
-import React from 'react'
 import '../../components/DetailDescription/DetailDescription.css'
 
 function DetailDescription({ carta }) {

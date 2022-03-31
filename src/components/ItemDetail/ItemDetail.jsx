@@ -1,15 +1,18 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom';
-import ItemCount from '../ItemCount/ItemCount';
 import '../Item/Item.css';
 import '../ItemCount/ItemCount.css'
+import { Link } from 'react-router-dom';
+import { useCartContext } from '../../context/cartContext'
+import { useState } from 'react'
+import ItemCount from '../ItemCount/ItemCount';
+
 function ItemDetail({ prod }) {
 
     const [isCantidad, setIsCantidad] = useState(false);
+    const { addToCart } = useCartContext();
+   
 
     const onAdd = (cantidad) => {
-        console.log(cantidad);
-        //addToCart({ ...prod, cantidad: cantidad });
+        addToCart({ ...prod, quantity: cantidad });
         setIsCantidad(true);
     }
     return (
