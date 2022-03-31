@@ -1,11 +1,9 @@
 import '../CartItem/CartItem.css'
+import { useCartContext } from '../../context/cartContext'
 
 function CartItem({ item }) {
 
-
-    const onAdd = (cant) => {
-        console.log(cant);
-    }
+    const { cartList, addToCart } = useCartContext();
 
     return (
         <>

@@ -8,8 +8,8 @@ function Cart() {
     return (
         <>
             <div className="detailBackground" >
-                <button>Vaciar Carrito</button>
-                <button>Finalizar Compra</button>
+                <button onClick={() => { emptyCart() }}>Vaciar Carrito</button>
+                <button onClick={() => { }}>Finalizar Compra</button>
                 <ul>
                     {cartList.map((cartItem) => <CartItem item={cartItem} />)}
                 </ul>
