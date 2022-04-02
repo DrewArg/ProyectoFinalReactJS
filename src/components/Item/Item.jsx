@@ -37,7 +37,7 @@ function Item({ prod }) {
                             </div>
                         </div>
 
-                        <ItemCount initial={1} stock={prod.stock} item={onAdd} />
+                        <ItemCount initial={1} stock={prod.stock} onAdd={onAdd} />
 
                     </div>
 
