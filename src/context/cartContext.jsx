@@ -52,11 +52,15 @@ function CartContextProvider({ children }) {
     }
 
     const totalValue = () => {
-        return cartList.reduce((a, b) => a + (b.price) * (b.quantity), 0);
+        return cartList.reduce((acummulator, product) => acummulator + (product.price) * (product.quantity), 0);
+    };
+
+    const totalQuantity = () => {
+        return cartList.reduce((acummulator, product) => acummulator += product.quantity, 0);
     };
 
     return (
-        <CartContext.Provider value={{ cartList, addToCart, emptyCart, removeItem, addOneItem, removeOneItem, totalValue }}>
+        <CartContext.Provider value={{ cartList, addToCart, emptyCart, removeItem, addOneItem, removeOneItem, totalValue, totalQuantity }}>
             {children}
         </CartContext.Provider>
     )

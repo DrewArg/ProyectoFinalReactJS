@@ -15,6 +15,7 @@ function ItemDetail({ prod }) {
         addToCart({ ...prod, quantity: cantidad });
         setIsCantidad(true);
     }
+    
     return (
         <div>
             <div className="tarjeta" key={prod.id}>
@@ -40,7 +41,7 @@ function ItemDetail({ prod }) {
                                     <button className="btnAgregar">Ir a Cart</button>
                                 </Link>
                             </>
-                            : <ItemCount initial={1} stock={10} onAdd={onAdd} />
+                            : <ItemCount initial={1} stock={prod.stock} onAdd={onAdd} />
                         }
 
                     </div>
