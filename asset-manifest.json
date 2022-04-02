@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/ProyectoFinalReactJs/static/css/main.2f143331.css",
-    "main.js": "/ProyectoFinalReactJs/static/js/main.997acb48.js",
+    "main.js": "/ProyectoFinalReactJs/static/js/main.9438185a.js",
     "static/js/787.96e39533.chunk.js": "/ProyectoFinalReactJs/static/js/787.96e39533.chunk.js",
     "static/media/puenteBosque.jpg": "/ProyectoFinalReactJs/static/media/puenteBosque.4b0c1a380548288b98b1.jpg",
     "index.html": "/ProyectoFinalReactJs/index.html",
     "main.2f143331.css.map": "/ProyectoFinalReactJs/static/css/main.2f143331.css.map",
-    "main.997acb48.js.map": "/ProyectoFinalReactJs/static/js/main.997acb48.js.map",
+    "main.9438185a.js.map": "/ProyectoFinalReactJs/static/js/main.9438185a.js.map",
     "787.96e39533.chunk.js.map": "/ProyectoFinalReactJs/static/js/787.96e39533.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2f143331.css",
-    "static/js/main.997acb48.js"
+    "static/js/main.9438185a.js"
   ]
 }
