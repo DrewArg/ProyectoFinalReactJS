@@ -18,7 +18,10 @@ function CartItem({ item }) {
                     Cantidad: {item.quantity}
                 </div>
                 <div>
-                    Precio por unidad: {item.price}
+                    Stock: {item.stock}
+                </div>
+                <div>
+                    Precio unitario: {item.price}
                 </div>
                 <button onClick={() => { addOneItem(item) }}>+ 1</button>
                 <button onClick={() => { removeOneItem(item) }}>- 1 </button>

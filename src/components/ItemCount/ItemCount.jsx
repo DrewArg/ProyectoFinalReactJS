@@ -1,7 +1,10 @@
 import '../ItemCount/ItemCount.css'
 import { useState } from 'react'
+import { useCartContext } from '../../context/cartContext'
 const ItemCount = ({ initial, stock, onAdd }) => {
     const [count, setCount] = useState(initial)
+
+    const { addToCart } = useCartContext();
 
     const sumar = () => {
         if (count < stock) {

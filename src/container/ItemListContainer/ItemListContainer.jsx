@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getFetch } from '../../helpers/gFetch';
 import ItemList from '../../components/ItemList/ItemList';
-import styles from '../ItemListContainer/ItemListContainer.css'
+import '../ItemListContainer/ItemListContainer.css'
 import Titulo from '../../components/Titulo/Titulo'
 
-const ItemListContainer = ({ saludo }) => {
+const ItemListContainer = () => {
 
     const [loading, setLoading] = useState(true);
     const [prods, setProds] = useState([]);
@@ -27,7 +27,6 @@ const ItemListContainer = ({ saludo }) => {
 
     return (
         <>
-            <div className="saludo">{saludo}</div>
             <Titulo />
             {
                 loading ? <h2 className="cargando"> Cargando...</h2> : <ItemList prods={prods} />

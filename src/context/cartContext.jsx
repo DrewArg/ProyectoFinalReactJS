@@ -8,14 +8,22 @@ function CartContextProvider({ children }) {
 
     const [cartList, setCartList] = useState([]);
 
-    const addToCart = (item) => {
-        setCartList([...cartList, item]);
+    const addToCart = (cartItem) => {
+        const foundItem = cartList.find((item) => item.id === cartItem.id);
+        if (foundItem) {
+            if (foundItem.quantity < cartItem.stock) {
+                foundItem.quantity = foundItem.quantity + cartItem.quantity;
+                setCartList([...cartList]);
+            }
+        } else {
+            setCartList([...cartList, cartItem]);
+        }
     }
 
     const addOneItem = (cartItem) => {
         const foundItem = cartList.find((item) => item.id === cartItem.id);
         if (foundItem) {
-            if (cartItem.quantity < 10) {
+            if (cartItem.quantity < cartItem.stock) {
                 cartItem.quantity = cartItem.quantity + 1;
                 setCartList([...cartList]);
             }

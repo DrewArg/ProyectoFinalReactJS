@@ -36,7 +36,8 @@ function Item({ prod }) {
                                 {prod.description}
                             </div>
                         </div>
-                        <ItemCount initial={1} stock={10} onAdd={onAdd} />
+
+                        <ItemCount initial={1} stock={prod.stock} item={onAdd} />
 
                     </div>
 
