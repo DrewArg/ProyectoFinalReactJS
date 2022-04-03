@@ -8,6 +8,7 @@ function CartItem({ item }) {
     return (
         <>
             <li className="cartItemList">
+                <button onClick={() => { removeItem(item.id) }}>X</button>
                 <div>
                     Nombre: {item.name}
                 </div>
@@ -23,9 +24,9 @@ function CartItem({ item }) {
                 <div>
                     Precio unitario: {item.price}
                 </div>
-                <button onClick={() => { addOneItem(item) }}>+ 1</button>
-                <button onClick={() => { removeOneItem(item) }}>- 1 </button>
-                <button onClick={() => { removeItem(item.id) }}>Remover Item</button>
+                <button onClick={() => { removeOneItem(item) }}>-</button>
+                <button onClick={() => { addOneItem(item) }}>+</button>
+
 
             </li>
 

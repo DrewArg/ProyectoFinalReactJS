@@ -17,7 +17,7 @@ function CartList() {
                         <button onClick={() => { }}>Finalizar Compra</button>
                     </div>
                     <div className="cartPrice">
-                        <div>Total compra: {totalValue()}</div>
+                        <div>Total compra: ${totalValue()}</div>
                     </div>
                 </div>
             </div>
