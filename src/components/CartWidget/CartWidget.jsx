@@ -2,23 +2,27 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from 'react-router-dom';
 import CartItemCount from "../CartItemCount/CartItemCount";
+import { useCartContext } from '../../context/CartContext'
 
 const Widget = () => {
+
+    const { noItems } = useCartContext();
     return (
         <>
-            <div className="cartWidget">
+            {noItems ? <></> :
+                <div className="cartWidget">
 
-                <div className="cartWidget__icon">
-                    <div className="cartWidget__count">
-                        <CartItemCount />
+                    <div className="cartWidget__icon">
+                        <div className="cartWidget__count">
+                            <CartItemCount />
+                        </div>
+
+                        <Link to="/cart">
+                            < FontAwesomeIcon icon={faCartShopping} />
+                        </Link>
                     </div>
 
-                    <Link to="/cart">
-                        < FontAwesomeIcon icon={faCartShopping} />
-                    </Link>
-                </div>
-
-            </div>
+                </div>}
         </>
     )
 }
