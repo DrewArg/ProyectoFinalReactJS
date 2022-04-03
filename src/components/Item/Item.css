@@ -18,7 +18,7 @@
   color: #f4f4f2;
 }
 .tarjeta__contorno--Animal:hover {
-  box-shadow: 1px 1px 2px black, 0 0 25px #6f6fa8, 0 0 5px darkblue;
+  box-shadow: 1px 1px 2px black, 0 0 25px rgb(111, 111, 168), 0 0 5px darkblue;
 }
 .tarjeta__contorno--Alimento {
   display: flex;
@@ -33,7 +33,7 @@
   color: #f4f4f2;
 }
 .tarjeta__contorno--Alimento:hover {
-  box-shadow: 1px 1px 2px black, 0 0 25px #a16fa8, 0 0 5px darkblue;
+  box-shadow: 1px 1px 2px black, 0 0 25px rgb(161, 111, 168), 0 0 5px darkblue;
 }
 .tarjeta__contorno--Habilidad {
   display: flex;
@@ -48,7 +48,7 @@
   color: #f4f4f2;
 }
 .tarjeta__contorno--Habilidad:hover {
-  box-shadow: 1px 1px 2px black, 0 0 25px #af9360, 0 0 5px darkblue;
+  box-shadow: 1px 1px 2px black, 0 0 25px rgb(175, 147, 96), 0 0 5px darkblue;
 }
 .tarjeta__contorno--Habitat {
   display: flex;
@@ -63,7 +63,7 @@
   color: #f4f4f2;
 }
 .tarjeta__contorno--Habitat:hover {
-  box-shadow: 1px 1px 2px black, 0 0 25px #98a160, 0 0 5px darkblue;
+  box-shadow: 1px 1px 2px black, 0 0 25px rgb(152, 161, 96), 0 0 5px darkblue;
 }
 .tarjeta__superior {
   height: 15px;

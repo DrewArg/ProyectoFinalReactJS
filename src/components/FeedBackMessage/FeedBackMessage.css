@@ -1,0 +1,20 @@
+.warning {
+  background-color: rgb(249, 219, 23);
+  color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 1.1rem;
+}
+
+.feedbackContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-weight: 600;
+  margin: 2rem;
+  text-align: center;
+  justify-content: center;
+}/*# sourceMappingURL=FeedBackMessage.css.map */

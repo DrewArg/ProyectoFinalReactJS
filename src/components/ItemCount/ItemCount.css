@@ -23,14 +23,14 @@ button {
 }
 
 .btnSumar:hover {
-  background-color: #f37070;
+  background-color: rgb(243, 112, 112);
 }
 
 .btnRestar:hover {
-  background-color: #77d477;
+  background-color: rgb(119, 212, 119);
 }
 
 .btnAgregar:hover {
   color: #f5f5f5;
-  background: #616161;
+  background: rgb(97, 97, 97);
 }/*# sourceMappingURL=ItemCount.css.map */

@@ -1,5 +1,5 @@
 import '../CartItem/CartItem.css'
-import { useCartContext } from '../../context/cartContext'
+import { useCartContext } from '../../context/CartContext'
 
 function CartItem({ item }) {
 

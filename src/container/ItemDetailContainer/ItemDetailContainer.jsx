@@ -7,7 +7,7 @@ import ItemDetail from '../../components/ItemDetail/ItemDetail';
 
 function ItemDetailContainer() {
     const [loading, setLoading] = useState(true);
-    const [producto, setProducto] = useState({})
+    const [product, setProduct] = useState({})
 
     const { detailId } = useParams()
 
@@ -15,12 +15,12 @@ function ItemDetailContainer() {
         if (detailId) {
             getFetch
                 .then(prod => prod.find(carta => carta.id === detailId))
-                .then(prod => setProducto(prod))
+                .then(prod => setProduct(prod))
                 .catch(err => console.log(err))
                 .finally(() => setLoading(false))
         } else {
             getFetch
-                .then(resp => setProducto(resp))
+                .then(resp => setProduct(resp))
                 .catch(err => console.log(err))
                 .finally(() => setLoading(false))
         }
@@ -31,11 +31,11 @@ function ItemDetailContainer() {
             <div className="detailBackground">
 
                 {
-                    loading ? <h2 className="cargando"> Cargando...</h2> : <ItemDetail prod={producto} />
+                    loading ? <h2 className="cargando"> Cargando...</h2> : <ItemDetail prod={product} />
                 }
 
                 {
-                    loading ? <></> : <DetailDescription carta={producto} />
+                    loading ? <></> : <DetailDescription carta={product} />
                 }
 
 

@@ -1,10 +1,6 @@
 a {
     color: white;
     text-decoration: none;
-    &:hover {
-        background-color: rgb(16, 73, 63);
-        color: rgb(213, 243, 234);
-    }
 }
 
 .navLink {
@@ -17,11 +13,17 @@ a {
     font-size: 1.2rem;
     color: white;
     font-weight: 800;
+    &:hover {
+        color: rgb(23, 207, 176);
+    }
 
     &__child {
         text-decoration: none;
         padding-left: 1.2rem;
         padding-right: 1.2rem;
+        &:hover {
+            color: rgb(23, 207, 176);
+        }
     }
 }
 
@@ -31,6 +33,9 @@ a {
     font-weight: 800;
     padding-left: 1.2rem;
     padding-right: 1.2rem;
+    &:hover {
+        color: rgb(23, 207, 176);
+    }
 }
 
 .cart {
@@ -39,4 +44,7 @@ a {
     font-weight: 800;
     padding-left: 1.2rem;
     padding-right: 1.2rem;
+    &:hover {
+        color: rgb(23, 207, 176);
+    }
 }

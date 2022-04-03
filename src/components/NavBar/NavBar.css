@@ -2,10 +2,6 @@ a {
   color: white;
   text-decoration: none;
 }
-a:hover {
-  background-color: #10493f;
-  color: #d5f3ea;
-}
 
 .navLink {
   text-decoration: none;
@@ -18,10 +14,16 @@ a:hover {
   color: white;
   font-weight: 800;
 }
+.navLink:hover {
+  color: rgb(23, 207, 176);
+}
 .navLink__child {
   text-decoration: none;
   padding-left: 1.2rem;
   padding-right: 1.2rem;
+}
+.navLink__child:hover {
+  color: rgb(23, 207, 176);
 }
 
 .brand {
@@ -31,6 +33,9 @@ a:hover {
   padding-left: 1.2rem;
   padding-right: 1.2rem;
 }
+.brand:hover {
+  color: rgb(23, 207, 176);
+}
 
 .cart {
   text-decoration: none;
@@ -38,4 +43,7 @@ a:hover {
   font-weight: 800;
   padding-left: 1.2rem;
   padding-right: 1.2rem;
+}
+.cart:hover {
+  color: rgb(23, 207, 176);
 }/*# sourceMappingURL=NavBar.css.map */

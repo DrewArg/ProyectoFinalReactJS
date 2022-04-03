@@ -1,52 +1,46 @@
 import '../Item/Item.css';
-import '../ItemCount/ItemCount.css'
-import { Link } from 'react-router-dom';
-import { useCartContext } from '../../context/cartContext'
+import { useCartContext } from '../../context/CartContext'
 import { useState } from 'react'
 import ItemCount from '../ItemCount/ItemCount';
+import LinkButton from '../LinkButton/LinkButton';
 
-function ItemDetail({ prod }) {
+function ItemDetail({ prod: product }) {
 
-    const [isCantidad, setIsCantidad] = useState(false);
+    const [cantidadItem, setCantidadItem] = useState(false);
     const { addToCart } = useCartContext();
-   
+
 
     const onAdd = (cantidad) => {
-        addToCart({ ...prod, quantity: cantidad });
-        setIsCantidad(true);
+        addToCart({ ...product, quantity: cantidad });
+        setCantidadItem(true);
     }
-    
+
     return (
         <div>
-            <div className="tarjeta" key={prod.id}>
-                <div className={`tarjeta__contorno--${prod.type}`}>
+            <div className="tarjeta" key={product.id}>
+                <div className={`tarjeta__contorno--${product.type}`}>
                     <div className="tarjeta__superior">
-                        <div className="tarjeta__superior--tipo" id="tipoTarjeta">{prod.type}</div>
+                        <div className="tarjeta__superior--tipo" id="tipoTarjeta">{product.type}</div>
                     </div>
                     <div className="tarjeta__tarjetaReal">
                         <div className="tarjeta__medio">
-                            <div className="tarjeta__medio--nombre" id="nombreTarjeta">{prod.name}</div>
+                            <div className="tarjeta__medio--nombre" id="nombreTarjeta">{product.name}</div>
                             <div className="tarjeta__medio--image">
-                                <img src={prod.img} alt={prod.alt} />
+                                <img src={product.img} alt={product.alt} />
                             </div>
                         </div>
                     </div>
                     <div className="tarjeta__inferior">
-                        {isCantidad ?
+                        {cantidadItem ?
                             <>
-                                <Link to='/'>
-                                    <button className="btnAgregar">Seguir comprando</button>
-                                </Link>
-                                <Link to='/cart'>
-                                    <button className="btnAgregar">Ir a Cart</button>
-                                </Link>
+                                <LinkButton title='Seguir comprando' style='basic' linkTo='' />
+                                <LinkButton title='Ir al Carrito' style='basic' linkTo='cart' />
                             </>
-                            : <ItemCount initial={1} stock={prod.stock} onAdd={onAdd} />
+                            : <ItemCount initial={1} stock={product.stock} onAdd={onAdd} />
                         }
 
                     </div>
                 </div>
-
             </div>
         </div>
     )

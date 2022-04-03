@@ -1,28 +1,19 @@
-import '../Cart/Cart.css'
-import { useCartContext } from '../../context/cartContext'
-import CartItem from '../CartItem/CartItem';
+import { useCartContext } from '../../context/CartContext'
+import FeedBackMessage from '../FeedBackMessage/FeedBackMessage'
+import CartList from '../CartList/CartList';
+import LinkButton from '../LinkButton/LinkButton';
 
 function Cart() {
-
-    const { cartList, emptyCart, totalValue } = useCartContext();
+    const { noItems } = useCartContext();
     return (
         <>
-            <div className="cartBackground" >
-                <ul>
-                    {cartList.map((cartItem) => <CartItem item={cartItem} />)}
-                </ul>
-                <div className="cartButtons">
-                    <button onClick={() => { emptyCart() }}>Vaciar Carrito</button>
-                    <button onClick={() => { }}>Finalizar Compra</button>
-                </div>
-                <div className="cartPrice">
-                    <div>Total compra: {totalValue()}</div>
-                </div>
-            </div>
-
+            {
+                noItems ? <><FeedBackMessage messageType='warning' messageString={message} /><LinkButton title='Tienda' style='basic' linkTo='' /> </> : <CartList />
+            }
         </>
-
     )
 }
 
 export default Cart
+
+let message = 'Lamentablemente tu carrito se encuentra vacio en estos momentos, pasa por la tienda para ver nuestros artículos disponibles.'
