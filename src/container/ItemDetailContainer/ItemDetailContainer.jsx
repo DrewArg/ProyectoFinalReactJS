@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import DetailDescription from '../../components/DetailDescription/DetailDescription'
 import ItemDetail from '../../components/ItemDetail/ItemDetail';
+import { collection, doc, getDoc, getDocs, getFirestore, limit, query, where } from 'firebase/firestore'
 
 function ItemDetailContainer() {
     const [loading, setLoading] = useState(true);
@@ -12,19 +13,23 @@ function ItemDetailContainer() {
     const { detailId } = useParams()
 
     useEffect(() => {
-        if (detailId) {
-            getFetch
-                .then(prod => prod.find(carta => carta.id === detailId))
-                .then(prod => setProduct(prod))
-                .catch(err => console.log(err))
-                .finally(() => setLoading(false))
-        } else {
-            getFetch
-                .then(resp => setProduct(resp))
-                .catch(err => console.log(err))
-                .finally(() => setLoading(false))
+
+        async function getItemById() {
+            try {
+                const database = getFirestore();
+                const queryProduct = doc(database, 'products', detailId);
+                const response = await getDoc(queryProduct);
+
+                setProduct({ id: response.id, ...response.data() })
+                setLoading(false);
+            } catch (error) {
+                //mostrar componente de error 404
+                console.log(error);
+            }
         }
-    }, [detailId])
+        getItemById();
+    })
+
 
     return (
         <>
