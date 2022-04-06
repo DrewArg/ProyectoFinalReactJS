@@ -10,9 +10,9 @@ function CartContextProvider({ children }) {
     const [noItems, setNoItems] = useState(true);
 
     const addToCart = (cartItem) => {
-        const foundItem = cartList.find((item) => item.id === cartItem.id);
         setNoItems(false);
-        if (foundItem) {
+        if (isInCart(cartItem)) {
+            const foundItem = cartList.find((item) => item.id === cartItem.id);
             if (foundItem.quantity < cartItem.stock) {
                 foundItem.quantity = foundItem.quantity + cartItem.quantity;
                 setCartList([...cartList]);
@@ -23,22 +23,22 @@ function CartContextProvider({ children }) {
     }
 
     const addOneItem = (cartItem) => {
-        const foundItem = cartList.find((item) => item.id === cartItem.id);
-        if (foundItem) {
+        if (isInCart(cartItem)) {
             setNoItems(false);
-            if (cartItem.quantity < cartItem.stock) {
-                cartItem.quantity = cartItem.quantity + 1;
+            const foundItem = cartList.find((item) => item.id === cartItem.id);
+            if (foundItem.quantity < cartItem.stock) {
+                foundItem.quantity = cartItem.quantity + 1;
                 setCartList([...cartList]);
             }
         }
     };
 
     const removeOneItem = (cartItem) => {
-        const foundItem = cartList.find((item) => item.id === cartItem.id);
-        if (foundItem) {
+        if (isInCart(cartItem)) {
+            const foundItem = cartList.find((item) => item.id === cartItem.id);
             setNoItems(false);
-            if (cartItem.quantity > 1) {
-                cartItem.quantity = cartItem.quantity - 1;
+            if (foundItem.quantity > 1) {
+                foundItem.quantity = foundItem.quantity - 1;
                 setCartList([...cartList]);
             }
         }
@@ -50,6 +50,10 @@ function CartContextProvider({ children }) {
         if (aux.length === 0) {
             setNoItems(true);
         }
+    }
+
+    const isInCart = (cartItem) => {
+        return cartList.find((item) => item.id === cartItem.id);
     }
 
     const emptyCart = () => {

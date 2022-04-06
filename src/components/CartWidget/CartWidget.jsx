@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import CartItemCount from "../CartItemCount/CartItemCount";
 
 const Widget = () => {
-    
+
     return (
         <>
             <div className="cartWidget">

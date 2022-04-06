@@ -19,16 +19,12 @@ function App() {
             <Route
               path="/"
               element=
-              {<ItemListContainer
-                saludo='Hola soy ItemListContainer'
-              />}
+              {<ItemListContainer />}
             />
             <Route
               path="/type/:typeId"
               element=
-              {<ItemListContainer
-                saludo='Hola soy ItemListContainer'
-              />}
+              {<ItemListContainer />}
             />
             <Route path="/detail/:detailId" element={<ItemDetailContainer />} />
             <Route path="/cart" element={<Cart />} />
