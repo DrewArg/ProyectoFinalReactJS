@@ -1,14 +1,14 @@
 import '../../components/DetailDescription/DetailDescription.css'
 
-function DetailDescription({ carta }) {
+function DetailDescription({ product }) {
     return (
         <>
             <div className="detailContainer">
-                <div className="productTitle">{carta.name}</div>
-                <div className="generalDescription">{seleccionarDescripcionPorTipo(carta.type)}</div>
+                <div className="productTitle">{product.name}</div>
+                <div className="generalDescription">{seleccionarDescripcionPorTipo(product.type)}</div>
                 <ul>
-                    <li>Coste: {carta.price}</li>
-                    <li>Efecto: {devolverEfecto(carta.description)}</li>
+                    <li>Coste: {product.price}</li>
+                    <li>Efecto: {devolverEfecto(product.description)}</li>
                 </ul>
             </div>
         </>

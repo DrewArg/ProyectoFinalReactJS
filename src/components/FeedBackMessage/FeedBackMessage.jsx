@@ -1,5 +1,6 @@
 import '../FeedBackMessage/FeedBackMessage.css'
-function FeedBackMessage({ messageType, messageString }) {
+import LinkButton from '../LinkButton/LinkButton'
+function FeedBackMessage({ messageType, messageString, buttonTitle, buttonStyle, buttonLinkTo }) {
     return (
         <>
             <div className="feedbackContainer">
@@ -7,6 +8,10 @@ function FeedBackMessage({ messageType, messageString }) {
                     {messageString}
                 </div>
             </div>
+            <div>
+                <LinkButton title={buttonTitle} style={buttonStyle} linkTo={buttonLinkTo} />
+            </div>
+
         </>
     )
 }

@@ -9,6 +9,17 @@
   font-size: 1.1rem;
 }
 
+.error {
+  background-color: rgb(209, 68, 68);
+  color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 1.1rem;
+}
+
 .feedbackContainer {
   display: flex;
   flex-direction: column;

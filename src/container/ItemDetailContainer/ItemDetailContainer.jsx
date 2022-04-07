@@ -1,10 +1,10 @@
 import '../ItemDetailContainer/ItemDetailContainer.css'
-import { getFetch } from '../../helpers/gFetch'
+import { doc, getDoc, getFirestore } from 'firebase/firestore'
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import DetailDescription from '../../components/DetailDescription/DetailDescription'
 import ItemDetail from '../../components/ItemDetail/ItemDetail';
-import { collection, doc, getDoc, getDocs, getFirestore, limit, query, where } from 'firebase/firestore'
+import FeedBackMessage from '../../components/FeedBackMessage/FeedBackMessage';
 
 function ItemDetailContainer() {
     const [loading, setLoading] = useState(true);
@@ -23,8 +23,7 @@ function ItemDetailContainer() {
                 setProduct({ id: response.id, ...response.data() })
                 setLoading(false);
             } catch (error) {
-                //mostrar componente de error 404
-                console.log(error);
+                <FeedBackMessage messageType="error" messageString="Ha ocurrido un error al cargar la información del producto seleccionado, por favor regresa a la página principal." buttonTitle='Página principal' buttonStyle='basic' buttonLinkTo='' />
             }
         }
         getItemById();
@@ -40,7 +39,7 @@ function ItemDetailContainer() {
                 }
 
                 {
-                    loading ? <></> : <DetailDescription carta={product} />
+                    loading ? <></> : <DetailDescription product={product} />
                 }
 
 

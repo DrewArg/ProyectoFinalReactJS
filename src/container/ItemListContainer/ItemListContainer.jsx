@@ -1,9 +1,10 @@
+import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore'
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemList from '../../components/ItemList/ItemList';
 import '../ItemListContainer/ItemListContainer.css'
 import Titulo from '../../components/Titulo/Titulo'
-import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore'
+import FeedBackMessage from '../../components/FeedBackMessage/FeedBackMessage';
 
 
 const ItemListContainer = () => {
@@ -30,8 +31,7 @@ const ItemListContainer = () => {
                     setLoading(false);
                 }
             } catch (error) {
-                //mostrar componente de error 404
-                console.log(error);
+                <FeedBackMessage messageType="error" messageString="Ha ocurrido un error en la carga de nuestros productos, por favor recarga la página." buttonTitle='Recargar la página' buttonStyle='basic' buttonLinkTo='' />
             }
 
         }
@@ -45,7 +45,7 @@ const ItemListContainer = () => {
         <>
             <Titulo />
             {
-                loading ? <h2 className="cargando"> Cargando...</h2> : <ItemList prods={products} />
+                loading ? <h2 className="cargando"> Cargando...</h2> : <ItemList products={products} />
             }
         </>
     )

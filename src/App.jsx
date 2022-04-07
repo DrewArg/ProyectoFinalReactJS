@@ -7,6 +7,7 @@ import ItemDetailContainer from '../src/container/ItemDetailContainer/ItemDetail
 import ItemListContainer from '../src/container/ItemListContainer/ItemListContainer';
 import NavBar from './components/NavBar/NavBar';
 import React from 'react'
+import FeedBackMessage from './components/FeedBackMessage/FeedBackMessage';
 
 
 function App() {
@@ -28,10 +29,8 @@ function App() {
             />
             <Route path="/detail/:detailId" element={<ItemDetailContainer />} />
             <Route path="/cart" element={<Cart />} />
-            {/* crear un componente para el error 404 */}
-            {/* <Route path=/notFound element={Componente404 />}/>} */}
             <Route path="/type/:typeId/detail/:detailId" element={<ItemDetailContainer />} />
-            <Route path='/*' element={<Navigate to='/' />} />
+            <Route path='/*' element={<FeedBackMessage messageType="error" messageString="404 - Ha ocurrido un error no identificado, por favor regresa a la página principal." buttonTitle='Página principal' buttonStyle='basic' buttonLinkTo='' />} />
           </Routes>
 
         </div>
@@ -41,3 +40,4 @@ function App() {
 }
 
 export default App;
+

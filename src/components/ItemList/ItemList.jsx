@@ -1,11 +1,11 @@
 import '../Item/Item.css'
 import Item from '../Item/Item'
 
-function ItemList({ prods }) {
+function ItemList({ products }) {
     return (
         <>
             <div className="tarjeta" >
-                {prods.map((prod) => <Item prod={prod} />)}
+                {products.map((product) => <Item prod={product} />)}
             </div>
         </>
     )

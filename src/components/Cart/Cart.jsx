@@ -8,7 +8,7 @@ function Cart() {
     return (
         <>
             {
-                noItems ? <><FeedBackMessage messageType='warning' messageString={message} /><LinkButton title='Tienda' style='basic' linkTo='' /> </> : <CartList />
+                noItems ? <FeedBackMessage messageType='warning' messageString={message} buttonTitle='Ir de compras' buttonStyle='basic' buttonLinkTo='' /> : <CartList />
             }
         </>
     )
