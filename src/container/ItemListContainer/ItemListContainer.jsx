@@ -1,4 +1,4 @@
-import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore'
+import { collection, getDocs, getFirestore, orderBy, query, where } from 'firebase/firestore'
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemList from '../../components/ItemList/ItemList';
@@ -18,15 +18,18 @@ const ItemListContainer = () => {
         async function getEverything() {
             try {
                 const database = getFirestore();
-                const queryCollection = collection(database, 'products')
+                const queryCollection = collection(database, 'products');
 
                 if (typeId) {
-                    const filterType = query(queryCollection, where('type', '==', typeId));
+                    const filterType = query(queryCollection,
+                        where('type', '==', typeId));
                     const response = await getDocs(filterType);
                     setProducts(response.docs.map(p => ({ id: p.id, ...p.data() })));
                     setLoading(false);
                 } else {
-                    const response = await getDocs(queryCollection);
+                    const order = query(queryCollection,
+                        orderBy('type'));
+                    const response = await getDocs(order);
                     setProducts(response.docs.map(p => ({ id: p.id, ...p.data() })));
                     setLoading(false);
                 }

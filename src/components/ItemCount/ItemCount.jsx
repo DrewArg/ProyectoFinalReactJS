@@ -1,8 +1,10 @@
 import '../ItemCount/ItemCount.css'
 import { useState } from 'react'
+import FloatingFeedbackMessage from '../FloatingFeedbackMessage/FloatingFeedbackMessage'
 
-const ItemCount = ({ initial, stock, onAdd }) => {
+const ItemCount = ({ initial, stock, onAdd, product }) => {
     const [count, setCount] = useState(initial)
+    const [show, setShow] = useState(false)
 
     const sumar = () => {
         if (count < stock) {
@@ -17,7 +19,8 @@ const ItemCount = ({ initial, stock, onAdd }) => {
 
     const agregar = () => {
         onAdd(count)
-        setCount(1);
+        setShow(true);
+        // setCount(1);
     }
 
     return (
@@ -27,10 +30,11 @@ const ItemCount = ({ initial, stock, onAdd }) => {
                 <span> {count} </span>
                 <button className="btnSumar" onClick={sumar}> + </button>
                 <button className="btnAgregar" onClick={agregar}>Add to Cart</button>
+                {/* <FloatingFeedbackMessage typeOfMessage="confirmation" show={show} message={"¡" + count + " copias de " + product.name + " fueron agregadas al carrito!"} /> */}
             </div>
         </div>
     )
 }
 
-export default ItemCount
+export default ItemCount;
 

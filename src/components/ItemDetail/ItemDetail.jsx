@@ -14,6 +14,8 @@ function ItemDetail({ prod: product }) {
         addToCart({ ...product, quantity: cantidad });
         setCantidadItem(true);
     }
+    
+    //agregar un loading a las imagenes por si no se cargaron aun
 
     return (
         <div>

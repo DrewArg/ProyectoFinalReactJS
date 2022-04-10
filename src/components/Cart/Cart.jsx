@@ -1,7 +1,6 @@
 import { useCartContext } from '../../context/CartContext'
 import FeedBackMessage from '../FeedBackMessage/FeedBackMessage'
 import CartList from '../CartList/CartList';
-import LinkButton from '../LinkButton/LinkButton';
 
 function Cart() {
     const { noItems } = useCartContext();
