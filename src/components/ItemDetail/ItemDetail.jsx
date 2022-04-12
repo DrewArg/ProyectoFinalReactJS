@@ -1,5 +1,5 @@
 import '../Item/Item.css';
-import { useCartContext } from '../../context/CartContext'
+import { useCartContext } from '../../context/cartContext'
 import { useState } from 'react'
 import ItemCount from '../ItemCount/ItemCount';
 import LinkButton from '../LinkButton/LinkButton';

@@ -2,7 +2,7 @@ import CartItem from '../CartItem/CartItem';
 import { addDoc, collection, doc, documentId, getDocs, getFirestore, query, updateDoc, where, writeBatch } from 'firebase/firestore'
 import FeedBackMessage from '../FeedBackMessage/FeedBackMessage'
 import { useState } from 'react'
-import { useCartContext } from '../../context/CartContext'
+import { useCartContext } from '../../context/cartContext'
 import '../CartList/CartList.css'
 
 function CartList() {

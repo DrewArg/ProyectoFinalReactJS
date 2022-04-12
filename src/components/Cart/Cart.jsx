@@ -1,4 +1,4 @@
-import { useCartContext } from '../../context/CartContext'
+import { useCartContext } from '../../context/cartContext'
 import FeedBackMessage from '../FeedBackMessage/FeedBackMessage'
 import CartList from '../CartList/CartList';
 
