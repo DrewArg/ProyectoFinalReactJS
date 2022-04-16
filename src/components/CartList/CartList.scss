@@ -46,7 +46,11 @@
         color: white;
     }
 
-    & div {
-        color: white;
+    &__div {
+        color:white;
     }
+}
+
+.errorFormulario{
+    color:red;
 }

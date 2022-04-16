@@ -11,6 +11,7 @@ function CartList() {
     const [orderId, setOrderId] = useState(null);
     const [formData, setFormData] = useState({ email: '', name: '', phone: '' })
     const [lastPart, setLastPart] = useState(false);
+    const [verifiedEmail, setVerifiedEmail] = useState({ email: '' });
 
     let message = '¡Muchas gracias por tu compra! Tu ID de seguimiento es: "' + orderId + '". Cualquier cosa no dudes en contactarnos al mail comprasbpra@info.com';
 
@@ -18,11 +19,13 @@ function CartList() {
 
     async function sendOrder() {
 
+        console.log(verifiedEmail.email);
+        console.log(formData.email);
+
         let order = {};
 
         // order.buyer= { name: 'Andrés', phone: 123123123, email: 'andresfabbiano5@gmail.com' };
         order.buyer = formData;
-        console.log(formData);
 
         order.products = cartList.map(cartItem => {
             const id = cartItem.id;
@@ -40,13 +43,20 @@ function CartList() {
         await addDoc(queryOrders, order)
             .then(response => setOrderId(response.id))
             .then(setSentOrder(true))
+            .setTimeout(3000)
+            .catch(error => console.log(error))
             ;
-
     }
 
     const handleFormDataChange = (e) => {
         setFormData({
             ...formData,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const handleVerifiedEmailChange = (e) => {
+        setVerifiedEmail({
             [e.target.name]: e.target.value
         })
     }
@@ -78,29 +88,47 @@ function CartList() {
                     {
                         sentOrder ? <FeedBackMessage messageType='warning' messageString={message} buttonTitle='Volver al menú' buttonStyle='basic' buttonLinkTo='' /> :
                             lastPart ?
-                                <>
-                                    <div className="formulario">
-                                        <h3>Formulario de Compra</h3>
-                                        <div>Total de la compra: ${totalValue()}</div>
+                                verifiedEmail.email === formData.email ?
+                                    <>
+                                        <div className="formulario">
+                                            <h3>Formulario de Compra</h3>
+                                            <div className="formulario__div">Total de la compra: ${totalValue()}</div>
 
-                                        <form className="form">
+                                            <form className="form">
 
-                                            <label>Nombre</label>
-                                            <input type="text" name="name" placeholder="Ingrese su nombre" value={formData.name} onChange={handleFormDataChange} />
-                                            <label>Número telefónico:</label>
-                                            <input type="number" name="phone" placeholder="Ingrese su número telefónico" value={formData.phone} onChange={handleFormDataChange} />
-                                            <label>Email:</label>
-                                            <input type="email" name="email" placeholder="Ingrese su correo electrónico" value={formData.email} onChange={handleFormDataChange} />
-                                            {/* <label>Confirme su email:</label>
-                                   <input type="email" name="email2" placeholder="Reingrese su correo electrónico" value={formData.email2} onChange={handleFormDataChange} /> */}
-                                            <br />
+                                                <label>Nombre</label>
+                                                <input type="text" name="name" placeholder="Ingrese su nombre" value={formData.name} onChange={handleFormDataChange} />
+                                                <label>Número telefónico:</label>
+                                                <input type="number" name="phone" placeholder="Ingrese su número telefónico" value={formData.phone} onChange={handleFormDataChange} />
+                                                <label>Email:</label>
+                                                <input type="email" name="email" placeholder="Ingrese su correo electrónico" value={formData.email} onChange={handleFormDataChange} />
+                                                <label>Confirme su email:</label>
+                                                <input type="email" name="email" placeholder="Reingrese su correo electrónico" value={verifiedEmail.email} onChange={handleVerifiedEmailChange} />
+                                                <br />
+                                                <button onClick={() => { sendOrder() }}>Finalizar Compra</button>
+                                            </form>
+                                        </div>
+                                    </>
+                                    : <>
+                                        <div className="formulario">
+                                            <h3>Formulario de Compra</h3>
+                                            <div className="formulario__div">Total de la compra: ${totalValue()}</div>
+                                            <div className="errorFormulario">Los emails ingresados no coinciden.</div>
 
+                                            <form className="form">
 
-                                            <button onClick={() => { sendOrder() }}>Finalizar Compra</button>
-                                        </form>
-                                    </div>
-                                </>
-
+                                                <label>Nombre</label>
+                                                <input type="text" name="name" placeholder="Ingrese su nombre" value={formData.name} onChange={handleFormDataChange} />
+                                                <label>Número telefónico:</label>
+                                                <input type="number" name="phone" placeholder="Ingrese su número telefónico" value={formData.phone} onChange={handleFormDataChange} />
+                                                <label>Email:</label>
+                                                <input type="email" name="email" placeholder="Ingrese su correo electrónico" value={formData.email} onChange={handleFormDataChange} />
+                                                <label>Confirme su email:</label>
+                                                <input type="email" name="email" placeholder="Reingrese su correo electrónico" value={verifiedEmail.email} onChange={handleVerifiedEmailChange} />
+                                                <br />
+                                            </form>
+                                        </div>
+                                    </>
 
                                 : <>
                                     <ul>

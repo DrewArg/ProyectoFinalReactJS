@@ -44,6 +44,10 @@
 .formulario h3 {
   color: white;
 }
-.formulario div {
+.formulario__div {
   color: white;
+}
+
+.errorFormulario {
+  color: red;
 }/*# sourceMappingURL=CartList.css.map */
