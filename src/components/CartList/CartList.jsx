@@ -18,13 +18,8 @@ function CartList() {
 
 
     async function sendOrder() {
-
-        console.log(verifiedEmail.email);
-        console.log(formData.email);
-
         let order = {};
 
-        // order.buyer= { name: 'Andrés', phone: 123123123, email: 'andresfabbiano5@gmail.com' };
         order.buyer = formData;
 
         order.products = cartList.map(cartItem => {
@@ -43,9 +38,15 @@ function CartList() {
         await addDoc(queryOrders, order)
             .then(response => setOrderId(response.id))
             .then(setSentOrder(true))
-            .setTimeout(3000)
+            //.then(handleEmtpyCart())
             .catch(error => console.log(error))
             ;
+    }
+
+    const handleEmtpyCart = () => {
+        setTimeout(() => {
+            emptyCart()
+        }, 20000);
     }
 
     const handleFormDataChange = (e) => {
@@ -86,7 +87,11 @@ function CartList() {
                 <div className="cartBackground" >
 
                     {
-                        sentOrder ? <FeedBackMessage messageType='warning' messageString={message} buttonTitle='Volver al menú' buttonStyle='basic' buttonLinkTo='' /> :
+                        sentOrder ?
+                            orderId !== null ? <FeedBackMessage messageType='warning' messageString={message} buttonTitle='Volver al menú' buttonStyle='basic' buttonLinkTo='' /> : <>
+                                <h3 className ="cargandoId">Cargando tu ID de operación...</h3>
+                            </>
+                            :
                             lastPart ?
                                 verifiedEmail.email === formData.email ?
                                     <>
