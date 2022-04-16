@@ -1,0 +1,10 @@
+.detailBackground {
+  display: flex;
+  flex-direction: row;
+  margin-left: 10%;
+  width: 80%;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 15px;
+}/*# sourceMappingURL=ItemDetailContainer.css.map */

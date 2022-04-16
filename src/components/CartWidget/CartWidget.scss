@@ -1,0 +1,11 @@
+.cartWidget {
+    &__count {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+    }
+
+    &__icon {
+        position: relative;
+    }
+}

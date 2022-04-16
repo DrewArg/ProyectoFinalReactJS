@@ -1,0 +1,12 @@
+.cartItemList {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(5, 68, 44, 0.766);
+  margin-bottom: 1.2rem;
+}
+.cartItemList div {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0.5rem;
+}/*# sourceMappingURL=CartItem.css.map */

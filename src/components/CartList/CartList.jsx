@@ -1,0 +1,130 @@
+import CartItem from '../CartItem/CartItem';
+import { addDoc, collection, doc, documentId, getDocs, getFirestore, query, updateDoc, where, writeBatch } from 'firebase/firestore'
+import FeedBackMessage from '../FeedBackMessage/FeedBackMessage'
+import { useState } from 'react'
+import { useCartContext } from '../../context/cartContext'
+import '../CartList/CartList.css'
+
+function CartList() {
+    const { cartList, emptyCart, totalValue } = useCartContext();
+    const [sentOrder, setSentOrder] = useState(false);
+    const [orderId, setOrderId] = useState(null);
+    const [formData, setFormData] = useState({ email: '', email2: '', name: '', phone: '' })
+    const [lastPart, setLastPart] = useState(false);
+
+    let message = '¡Muchas gracias por tu compra! Tu ID de seguimiento es: "' + orderId + '". Cualquier cosa no dudes en contactarnos al mail comprasbpra@info.com';
+
+
+
+    async function sendOrder() {
+
+        let order = {};
+
+        order.buyer = formData;
+
+        order.products = cartList.map(cartItem => {
+            const id = cartItem.id;
+            const name = cartItem.name;
+            const price = cartItem.price * cartItem.quantity;
+            return { id, name, price };
+        })
+
+        order.date = new Date();
+
+        order.total = totalValue();
+
+        const database = getFirestore();
+        const queryOrders = collection(database, 'orders');
+        await addDoc(queryOrders, order)
+            .then(response => setOrderId(response.id))
+            .then(setSentOrder(true));
+
+    }
+
+    const handleFormDataChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        })
+    }
+
+
+    // async function updateStock() {
+    //     const database = getFirestore();
+    //     const queryUpdate = doc(database, 'products', '26ljuOnVLp7BaGhlU0qd')
+
+    //     updateDoc(queryUpdate, { stock: 99 })
+
+    //     const queryProducts = collection(database, 'products')
+
+    //     const queryUpdateStock = query(queryProducts, where(documentId(), 'in', cartList.map(it = it.id)));
+
+    //     const batch = writeBatch(queryUpdateStock);
+
+    //     await getDocs(queryUpdateStock)
+    //         .then(response => response.docs.forEach(res => batch.update(res.ref, { stock: res.data().stock = cartList.find(item => item.id === res.id).quantity })))
+
+    //     batch.commmit();
+
+    // }
+
+    return (
+        <>
+            <div className="detailBackground">
+                <div className="cartBackground">
+                    {lastPart ? (
+                        <>
+                            <div className="formulario">
+                                <h3>Formulario de Compra</h3>
+                                <div>Total de la compra: ${totalValue()}</div>
+
+                                <form className="form">
+
+                                    <label>Nombre</label>
+                                    <input type="text" name="name" placeholder="Ingrese su nombre" value={formData.name} onChange={handleFormDataChange} />
+                                    <label>Número telefónico:</label>
+                                    <input type="number" name="phone" placeholder="Ingrese su número telefónico" value={formData.phone} onChange={handleFormDataChange} />
+                                    <label>Email:</label>
+                                    <input type="email" name="email" placeholder="Ingrese su correo electrónico" value={formData.email} onChange={handleFormDataChange} />
+                                    <label>Confirme su email:</label>
+                                    <input type="email" name="email2" placeholder="Reingrese su correo electrónico" value={formData.email2} onChange={handleFormDataChange} />
+                                    <br />
+
+
+                                    <button onClick={() => { sendOrder() }}>Finalizar Compra</button>
+                                </form>
+                            </div>
+                        </>
+
+                    ) : (
+
+                        sentOrder ? (<FeedBackMessage messageType='warning' messageString={message} buttonTitle='Volver al menú' buttonStyle='basic' buttonLinkTo='' />
+
+                        ) :
+                            (
+                                <>
+                                    <ul>
+                                        {cartList.map((cartItem) => <CartItem item={cartItem} />)}
+                                    </ul>
+                                    <div className="cartButtons">
+                                        <button onClick={() => { emptyCart() }}>Vaciar Carrito</button>
+                                        <button onClick={() => { setLastPart(true) }}>Pasar a Formulario Final</button>
+                                    </div>
+                                    <div className="cartPrice">
+                                        <div>Total compra: ${totalValue()}</div>
+                                    </div>
+                                </>
+                            )
+                    )
+                    }
+                </div>
+            </div >
+        </>
+
+    )
+
+
+}
+
+export default CartList
+
