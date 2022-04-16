@@ -9,7 +9,7 @@ function CartList() {
     const { cartList, emptyCart, totalValue } = useCartContext();
     const [sentOrder, setSentOrder] = useState(false);
     const [orderId, setOrderId] = useState(null);
-    const [formData, setFormData] = useState({ email: '', email2: '', name: '', phone: '' })
+    const [formData, setFormData] = useState({ email: '', name: '', phone: '' })
     const [lastPart, setLastPart] = useState(false);
 
     let message = '¡Muchas gracias por tu compra! Tu ID de seguimiento es: "' + orderId + '". Cualquier cosa no dudes en contactarnos al mail comprasbpra@info.com';
@@ -20,7 +20,9 @@ function CartList() {
 
         let order = {};
 
+        // order.buyer= { name: 'Andrés', phone: 123123123, email: 'andresfabbiano5@gmail.com' };
         order.buyer = formData;
+        console.log(formData);
 
         order.products = cartList.map(cartItem => {
             const id = cartItem.id;
@@ -37,7 +39,8 @@ function CartList() {
         const queryOrders = collection(database, 'orders');
         await addDoc(queryOrders, order)
             .then(response => setOrderId(response.id))
-            .then(setSentOrder(true));
+            .then(setSentOrder(true))
+            ;
 
     }
 
@@ -67,58 +70,54 @@ function CartList() {
     //     batch.commmit();
 
     // }
-
     return (
         <>
             <div className="detailBackground">
-                <div className="cartBackground">
-                    {lastPart ? (
-                        <>
-                            <div className="formulario">
-                                <h3>Formulario de Compra</h3>
-                                <div>Total de la compra: ${totalValue()}</div>
+                <div className="cartBackground" >
 
-                                <form className="form">
-
-                                    <label>Nombre</label>
-                                    <input type="text" name="name" placeholder="Ingrese su nombre" value={formData.name} onChange={handleFormDataChange} />
-                                    <label>Número telefónico:</label>
-                                    <input type="number" name="phone" placeholder="Ingrese su número telefónico" value={formData.phone} onChange={handleFormDataChange} />
-                                    <label>Email:</label>
-                                    <input type="email" name="email" placeholder="Ingrese su correo electrónico" value={formData.email} onChange={handleFormDataChange} />
-                                    <label>Confirme su email:</label>
-                                    <input type="email" name="email2" placeholder="Reingrese su correo electrónico" value={formData.email2} onChange={handleFormDataChange} />
-                                    <br />
-
-
-                                    <button onClick={() => { sendOrder() }}>Finalizar Compra</button>
-                                </form>
-                            </div>
-                        </>
-
-                    ) : (
-
-                        sentOrder ? (<FeedBackMessage messageType='warning' messageString={message} buttonTitle='Volver al menú' buttonStyle='basic' buttonLinkTo='' />
-
-                        ) :
-                            (
+                    {
+                        sentOrder ? <FeedBackMessage messageType='warning' messageString={message} buttonTitle='Volver al menú' buttonStyle='basic' buttonLinkTo='' /> :
+                            lastPart ?
                                 <>
+                                    <div className="formulario">
+                                        <h3>Formulario de Compra</h3>
+                                        <div>Total de la compra: ${totalValue()}</div>
+
+                                        <form className="form">
+
+                                            <label>Nombre</label>
+                                            <input type="text" name="name" placeholder="Ingrese su nombre" value={formData.name} onChange={handleFormDataChange} />
+                                            <label>Número telefónico:</label>
+                                            <input type="number" name="phone" placeholder="Ingrese su número telefónico" value={formData.phone} onChange={handleFormDataChange} />
+                                            <label>Email:</label>
+                                            <input type="email" name="email" placeholder="Ingrese su correo electrónico" value={formData.email} onChange={handleFormDataChange} />
+                                            {/* <label>Confirme su email:</label>
+                                   <input type="email" name="email2" placeholder="Reingrese su correo electrónico" value={formData.email2} onChange={handleFormDataChange} /> */}
+                                            <br />
+
+
+                                            <button onClick={() => { sendOrder() }}>Finalizar Compra</button>
+                                        </form>
+                                    </div>
+                                </>
+
+
+                                : <>
                                     <ul>
                                         {cartList.map((cartItem) => <CartItem item={cartItem} />)}
                                     </ul>
                                     <div className="cartButtons">
                                         <button onClick={() => { emptyCart() }}>Vaciar Carrito</button>
-                                        <button onClick={() => { setLastPart(true) }}>Pasar a Formulario Final</button>
+                                        <button onClick={() => { setLastPart(true) }}>Finalizar Compra</button>
                                     </div>
                                     <div className="cartPrice">
                                         <div>Total compra: ${totalValue()}</div>
                                     </div>
                                 </>
-                            )
-                    )
                     }
+
                 </div>
-            </div >
+            </div>
         </>
 
     )
