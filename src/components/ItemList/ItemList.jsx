@@ -5,7 +5,9 @@ function ItemList({ products }) {
     return (
         <>
             <div className="tarjeta" >
-                {products.map((product) => <Item prod={product} />)}
+                {products.map((product) =>
+                 <Item key={product.id} 
+                prod={product} />)}
             </div>
 
         </>
@@ -13,3 +15,5 @@ function ItemList({ products }) {
 }
 
 export default ItemList
+
+

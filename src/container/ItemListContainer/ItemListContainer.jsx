@@ -5,13 +5,17 @@ import ItemList from '../../components/ItemList/ItemList';
 import '../ItemListContainer/ItemListContainer.css'
 import Titulo from '../../components/Titulo/Titulo'
 import FeedBackMessage from '../../components/FeedBackMessage/FeedBackMessage';
-
+import { useFeedbackMessageContext } from '../../context/FeedbackMessageContext/FeedbackMessageContext'
+import FeedbackMessageQueueContainer from '../../container/FeedbackMessageContainer/FeedbackMessageQueueContainer'
 
 const ItemListContainer = () => {
 
+
+    const { addMessage, removeMessage, messages } = useFeedbackMessageContext();
     const [loading, setLoading] = useState(true);
     const [products, setProducts] = useState([]);
     const { typeId } = useParams();
+
 
     useEffect(() => {
 
@@ -48,7 +52,9 @@ const ItemListContainer = () => {
         <>
             <Titulo />
             {
-                loading ? <h2 className="cargando"> Cargando...</h2> : <ItemList products={products} />
+                loading ? <h2 className="cargando"> Cargando...</h2> : <> <FeedbackMessageQueueContainer messages={messages} removeMessage={removeMessage} />
+                    <ItemList products={products} />
+                </>
             }
         </>
     )

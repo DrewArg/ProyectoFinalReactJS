@@ -1,15 +1,17 @@
 import '../ItemCount/ItemCount.css'
 import { useState } from 'react'
-import FloatingFeedbackMessage from '../FloatingFeedbackMessage/FloatingFeedbackMessage'
+import { useFeedbackMessageContext } from '../../context/FeedbackMessageContext/FeedbackMessageContext'
 
 const ItemCount = ({ initial, stock, onAdd, product }) => {
+
+    const { addMessage } = useFeedbackMessageContext()
     const [count, setCount] = useState(initial)
-    const [show, setShow] = useState(false)
 
     const sumar = () => {
         if (count < stock) {
             setCount(count + 1)
         }
+
     }
     const restar = () => {
         if (count > initial) {
@@ -19,8 +21,8 @@ const ItemCount = ({ initial, stock, onAdd, product }) => {
 
     const agregar = () => {
         onAdd(count)
-        setShow(true);
-        // setCount(1);
+        setCount(1);
+        addMessage({ caption: 'Haz agregado ' + count + ' ' + product.name + ' a tu carrito.', type: 'fmSuccess' })
     }
 
     return (
@@ -30,7 +32,6 @@ const ItemCount = ({ initial, stock, onAdd, product }) => {
                 <span> {count} </span>
                 <button className="btnSumar" onClick={sumar}> + </button>
                 <button className="btnAgregar" onClick={agregar}>Add to Cart</button>
-                {/* <FloatingFeedbackMessage typeOfMessage="confirmation" show={show} message={"¡" + count + " copias de " + product.name + " fueron agregadas al carrito!"} /> */}
             </div>
         </div>
     )
