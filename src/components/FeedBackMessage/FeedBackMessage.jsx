@@ -17,4 +17,3 @@ function FeedBackMessage({ messageType, messageString, buttonTitle, buttonStyle,
 }
 
 export default FeedBackMessage
-

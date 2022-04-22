@@ -2,7 +2,7 @@ import './Item.css';
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import ItemCount from '../ItemCount/ItemCount'
-import { useCartContext } from '../../context/cartContext'
+import { useCartContext } from '../../context/CartContext'
 
 function Item({ prod: product }) {
 
@@ -54,4 +54,3 @@ function Item({ prod: product }) {
 }
 
 export default Item
-

@@ -40,5 +40,3 @@ function devolverEfecto(description) {
     }
     return description;
 }
-
-

@@ -2,7 +2,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Cart from '../src/components/Cart/Cart'
-import CartContextProvider from './context/cartContext';
+import CartContextProvider from './context/CartContext';
 import ItemDetailContainer from '../src/container/ItemDetailContainer/ItemDetailContainer';
 import ItemListContainer from '../src/container/ItemListContainer/ItemListContainer';
 import NavBar from './components/NavBar/NavBar';
@@ -19,6 +19,11 @@ function App() {
           <Routes>
             <Route
               path="/"
+              element=
+              {<ItemListContainer />}
+            />
+            <Route
+              path="/ProyectoFinalReactJs"
               element=
               {<ItemListContainer />}
             />

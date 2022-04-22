@@ -15,4 +15,3 @@ function FloatingFeedbackMessage({ typeOfMessage, show, message }) {
 }
 
 export default FloatingFeedbackMessage
-
