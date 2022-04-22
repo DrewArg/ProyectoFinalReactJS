@@ -7,15 +7,13 @@ import '../CartList/CartList.css'
 
 function CartList() {
     const { cartList, emptyCart, totalValue } = useCartContext();
-    const [sentOrder, setSentOrder] = useState(false);
     const [orderId, setOrderId] = useState(null);
-    const [formData, setFormData] = useState({ email: '', name: '', phone: '' })
+    const [sentOrder, setSentOrder] = useState(false);
     const [lastPart, setLastPart] = useState(false);
+    const [formData, setFormData] = useState({ email: '', name: '', phone: '' })
     const [verifiedEmail, setVerifiedEmail] = useState({ email: '' });
 
     let message = '¡Muchas gracias por tu compra! Tu ID de seguimiento es: "' + orderId + '". Cualquier cosa no dudes en contactarnos al mail comprasbpra@info.com';
-
-
 
     async function sendOrder() {
         let order = {};

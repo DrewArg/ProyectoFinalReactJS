@@ -1,6 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Cart from '../src/components/Cart/Cart'
 import CartContextProvider from './context/CartContext';
 import ItemDetailContainer from '../src/container/ItemDetailContainer/ItemDetailContainer';
@@ -25,7 +25,7 @@ function App() {
             <Route
               path="/ProyectoFinalReactJs"
               element=
-              {<ItemListContainer />}
+              {<Navigate to="/" />}
             />
             <Route
               path="/type/:typeId"
@@ -34,7 +34,7 @@ function App() {
             />
             <Route path="/detail/:detailId" element={<ItemDetailContainer />} />
             <Route path="/cart" element={<Cart />} />
-            <Route path="/type/:typeId/detail/:detailId" element={<ItemDetailContainer />} />
+            <Route path="../type/:typeId/detail/:detailId" element={<ItemDetailContainer />} />
             <Route path='/*' element={<FeedBackMessage messageType="error" messageString="404 - Ha ocurrido un error no identificado, por favor regresa a la página principal." buttonTitle='Página principal' buttonStyle='basic' buttonLinkTo='' />} />
           </Routes>
 
