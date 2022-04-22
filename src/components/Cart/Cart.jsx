@@ -13,8 +13,7 @@ function Cart() {
                 noItems ?
                     <>
                         <FeedbackMessageQueueContainer messages={messages} removeMessage={removeMessage} />
-                        <FeedBackMessage messageType='warning' messageString={message} buttonTitle='Ir de compras' buttonStyle='basic' buttonLinkTo='' />
-                    </>
+                        <FeedBackMessage messageType='warning' messageString={message} buttonTitle='Ir de compras' buttonStyle='basic' buttonLinkTo='' /> </>
                     :
 
                     <>

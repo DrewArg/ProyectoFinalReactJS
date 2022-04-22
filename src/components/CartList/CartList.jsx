@@ -1,5 +1,5 @@
 import CartItem from '../CartItem/CartItem';
-import { addDoc, collection, doc, documentId, getDocs, getFirestore, query, updateDoc, where, writeBatch } from 'firebase/firestore'
+import { addDoc, collection, getFirestore, } from 'firebase/firestore'
 import FeedBackMessage from '../FeedBackMessage/FeedBackMessage'
 import { useState } from 'react'
 import { useCartContext } from '../../context/CartContext/CartContext'
@@ -36,15 +36,15 @@ function CartList() {
         await addDoc(queryOrders, order)
             .then(response => setOrderId(response.id))
             .then(setSentOrder(true))
-            //.then(handleEmtpyCart())
+            .then(handleEmtpyCart())
             .catch(error => console.log(error))
             ;
     }
-
     const handleEmtpyCart = () => {
         setTimeout(() => {
             emptyCart()
-        }, 20000);
+        }, 10000);
+
     }
 
     const handleFormDataChange = (e) => {
@@ -60,35 +60,24 @@ function CartList() {
         })
     }
 
-
-    // async function updateStock() {
-    //     const database = getFirestore();
-    //     const queryUpdate = doc(database, 'products', '26ljuOnVLp7BaGhlU0qd')
-
-    //     updateDoc(queryUpdate, { stock: 99 })
-
-    //     const queryProducts = collection(database, 'products')
-
-    //     const queryUpdateStock = query(queryProducts, where(documentId(), 'in', cartList.map(it = it.id)));
-
-    //     const batch = writeBatch(queryUpdateStock);
-
-    //     await getDocs(queryUpdateStock)
-    //         .then(response => response.docs.forEach(res => batch.update(res.ref, { stock: res.data().stock = cartList.find(item => item.id === res.id).quantity })))
-
-    //     batch.commmit();
-
-    // }
     return (
         <>
             <div className="detailBackground">
                 <div className="cartBackground" >
 
                     {
-                        sentOrder ?
-                            orderId !== null ? <FeedBackMessage messageType='warning' messageString={message} buttonTitle='Volver al menú' buttonStyle='basic' buttonLinkTo='' /> : <>
-                                <h3 className="cargandoId">Cargando tu ID de operación...</h3>
-                            </>
+                        sentOrder
+                            ?
+
+                            orderId !== null ?
+                                <>
+
+                                    <FeedBackMessage messageType='warning' messageString={message} buttonTitle='Volver al menú' buttonStyle='basic' buttonLinkTo='' />
+
+                                </>
+                                : <>
+                                    <h3 className="cargandoId">Cargando tu ID de operación...</h3>
+                                </>
                             :
                             lastPart ?
                                 formData.email === '' || formData.name === '' || formData.phone === '' || verifiedEmail === '' ?
