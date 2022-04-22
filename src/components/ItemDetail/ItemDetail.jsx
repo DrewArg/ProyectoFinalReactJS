@@ -3,18 +3,20 @@ import { useCartContext } from '../../context/CartContext/CartContext'
 import { useState } from 'react'
 import ItemCount from '../ItemCount/ItemCount';
 import LinkButton from '../LinkButton/LinkButton';
+import { useFeedbackMessageContext } from '../../context/FeedbackMessageContext/FeedbackMessageContext'
 
 function ItemDetail({ prod: product }) {
 
     const [cantidadItem, setCantidadItem] = useState(false);
     const { addToCart } = useCartContext();
-
+    const { addMessage } = useFeedbackMessageContext()
 
     const onAdd = (cantidad) => {
         addToCart({ ...product, quantity: cantidad });
+        addMessage({ caption: 'Haz agregado ' + cantidad + ' ' + product.name + ' a tu carrito.', type: 'fmSuccess' })
         setCantidadItem(true);
     }
-    
+
     //agregar un loading a las imagenes por si no se cargaron aun
 
     return (

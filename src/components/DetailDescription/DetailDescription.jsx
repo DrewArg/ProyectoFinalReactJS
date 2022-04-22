@@ -1,6 +1,7 @@
 import '../../components/DetailDescription/DetailDescription.css'
-
 function DetailDescription({ product }) {
+
+
     return (
         <>
             <div className="detailContainer">

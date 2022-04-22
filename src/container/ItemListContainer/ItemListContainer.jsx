@@ -11,7 +11,7 @@ import FeedbackMessageQueueContainer from '../../container/FeedbackMessageContai
 const ItemListContainer = () => {
 
 
-    const { addMessage, removeMessage, messages } = useFeedbackMessageContext();
+    const { removeMessage, messages } = useFeedbackMessageContext();
     const [loading, setLoading] = useState(true);
     const [products, setProducts] = useState([]);
     const { typeId } = useParams();

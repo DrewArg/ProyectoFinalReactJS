@@ -5,8 +5,12 @@ import { useParams } from 'react-router-dom';
 import DetailDescription from '../../components/DetailDescription/DetailDescription'
 import ItemDetail from '../../components/ItemDetail/ItemDetail';
 import FeedBackMessage from '../../components/FeedBackMessage/FeedBackMessage';
+import { useFeedbackMessageContext } from '../../context/FeedbackMessageContext/FeedbackMessageContext'
+import FeedbackMessageQueueContainer from '../../container/FeedbackMessageContainer/FeedbackMessageQueueContainer'
 
 function ItemDetailContainer() {
+
+    const { removeMessage, messages } = useFeedbackMessageContext();
     const [loading, setLoading] = useState(true);
     const [product, setProduct] = useState({})
 
@@ -39,7 +43,10 @@ function ItemDetailContainer() {
                 }
 
                 {
-                    loading ? <></> : <DetailDescription product={product} />
+                    loading ? <></> : <>
+                        <FeedbackMessageQueueContainer messages={messages} removeMessage={removeMessage} />
+                        <DetailDescription product={product} />
+                    </>
                 }
 
 
