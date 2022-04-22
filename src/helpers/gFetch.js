@@ -123,29 +123,3 @@ export const getFetch = new Promise((resolve, reject) => {
         reject('400 - not found');
     }
 })
-
-// MOCKK
-
-// const producto = {
-//     "id": '1',
-//     "type": "Animal",
-//     "name": "Lobo Gris",
-//     "price": 3,
-//     "damage": 3,
-//     "img": '../../public/img/loboGris.jpg',
-//     "alt": "imagen de un lobo gris",
-//     "description": "Gana +1 de daño por cada Lobo Gris además de este en tu tablero."
-// }
-
-// export const getFetchOne = new Promise((resolve, reject) => {
-//     let condition = true;
-
-//     if (condition) {
-//         setTimeout(() => {
-//             resolve(producto);
-//         }, 3000);
-//     } else {
-//         reject('400 - not found');
-//     }
-
-// })

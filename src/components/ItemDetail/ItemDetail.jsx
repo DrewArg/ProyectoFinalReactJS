@@ -17,8 +17,6 @@ function ItemDetail({ prod: product }) {
         setCantidadItem(true);
     }
 
-    //agregar un loading a las imagenes por si no se cargaron aun
-
     return (
         <div>
             <div className="tarjeta" key={product.id}>
