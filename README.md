@@ -3,7 +3,7 @@ _"La Batalla por el Reino Animal" es un juego de cartas por turnos para dos juga
 ## Autor ✒️
 
 - **Andrés Fabbiano** - [drewArg](https://github.com/DrewArg)
-## Demo
+## Demo de la Tienda Web
 https://drewarg.github.io/ProyectoFinalReactJs
 ## Librerias Externas
 | Librería | Versionado | Utilización
