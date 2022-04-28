@@ -1,5 +1,5 @@
 # La Batalla por el Reino Animal :octopus: :x: :wolf: 
-_"La Batalla del Reino Animal" es un juego de cartas por turnos para dos jugadores que está basado en "Mitos y Leyendas" - (https://myl.cl/)_
+_"La Batalla por el Reino Animal" es un juego de cartas por turnos para dos jugadores que está basado en "Mitos y Leyendas" - (https://myl.cl/)_
 ## Autor ✒️
 
 - **Andrés Fabbiano** - [drewArg](https://github.com/DrewArg)
