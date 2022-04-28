@@ -1,10 +1,25 @@
-# La Batalla del Reino Animal :octopus: :x: :wolf: - REGLAMENTO DE JUEGO
-
+# La Batalla por el Reino Animal :octopus: :x: :wolf: 
 _"La Batalla del Reino Animal" es un juego de cartas por turnos para dos jugadores que está basado en "Mitos y Leyendas" - (https://myl.cl/)_
+## Autor ✒️
 
-## Notas Versión Actual :notebook_with_decorative_cover:
+- **Andrés Fabbiano** - [drewArg](https://github.com/DrewArg)
+## Demo
+https://drewarg.github.io/ProyectoFinalReactJs
+## Librerias Externas
+| Librería | Versionado | Utilización
+| ------ | ------ | ------ |
+| fontawesome-svg-core | ^1.3.0 | iconos de la aplicación
+| react-fontawesome | ^0.1.17 |  componente oficial de fontAweseme para que sea más rapida la gestión de iconos.
+| Bootrsap | ^5.1.3 | estilos
+| Firebase | ^9.6.10 | reemplazo de backend
+| Gh-Pages | ^3.2.3 | visualización del demo
+| react | ^17.0.2 | documento en general
+| react-bootstrap | ^2.2.0 | NavBar
+| react-dom | ^17.0.2 | movilidad dentro y fuera del modelo de react
+| react-icons | ^4.3.1 | iconos populares
+| react-router-dom | ^6.2.2| creación de la aplicación
 
-_En esta versión se podrán jugar todos los tipos de cartas y se podrán activar todos los efectos. Todas las cartas sirven para algo en especial y funcionan correctamente._
+## REGLAMENTO DE JUEGO (Solicitar versión de escritorio --> JAVA)
 
 ## Tablero de Juego :game_die:
 
@@ -122,7 +137,3 @@ _Al final de cada turno el jugador robará una carta de su mazo._
 ## Obtención de la victoria :trophy:
 
 _El juego termina cuando un jugador logra que el mazo oponente no tenga cartas._
-
-## Autor ✒️
-
-- **Andrés Fabbiano** - [drewArg](https://github.com/DrewArg)
